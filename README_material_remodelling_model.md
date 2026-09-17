@@ -16,33 +16,6 @@ The model simulates:
 The model was developed for mechanistic investigation of how distinct
 hydrogel network properties regulate macrophage fusion behaviour.
 
-## Model overview
-
-    Hydrogel interface
-            |
-            ↓
-    Stochastic material fragmentation
-            |
-            ↓
-    Macrophage phagocytosis
-            |
-            ↓
-    Intracellular material retention tracking
-            |
-            ↓
-    Maxwell viscoelastic cell spreading
-            |
-            ↓
-    Macrophage fusion
-            |
-            ↓
-    Post-simulation intracellular retention analysis
-
-Macrophages are represented as deformable cellular agents with dynamic
-geometry, nuclear information and material uptake history. During cell
-fusion, cellular geometry, nuclear number and intracellular material
-retention history are conserved.
-
 ## Requirements
 
 -   Python \>= 3.9
@@ -63,21 +36,21 @@ pip install -r requirements.txt
 Default:
 
 ``` bash
-python simulation_material.py
+python simulation.py
 ```
 
 Select material condition:
 
 ``` bash
-python simulation_material.py --material SA
-python simulation_material.py --material UC
-python simulation_material.py --material CC
+python simulation.py --material SA
+python simulation.py --material UC
+python simulation.py --material CC
 ```
 
 Additional options:
 
 ``` bash
-python simulation_material.py --help
+python simulation.py --help
 ```
 
 ## Output
@@ -100,7 +73,6 @@ Outputs include:
 The model includes three hydrogel conditions:
 
   Material   Network characteristic
-  ---------- -----------------------------------------------------------------
   SA         Highly remodelable network with enhanced fragment accessibility
   UC         Intermediate physical network remodelling
   CC         Stable covalent network with limited remodelling
@@ -114,33 +86,6 @@ Parameters regulate:
 
 Parameter values represent qualitative differences between material
 systems and are not fitted to experimental datasets.
-
-## Reproducibility
-
-All stochastic processes are controlled by a fixed random seed:
-
-    seed = 2
-
-The model preserves:
-
--   material uptake history during cell fusion
--   nuclear information during fusion events
--   intracellular material retention dynamics after phagocytosis
-
-## Code organization
-
-    simulation_material.py
-        Main simulation workflow
-
-        ├── Material fragmentation
-        ├── Cell recruitment
-        ├── Fragment uptake
-        ├── Cell spreading
-        ├── Cell fusion
-        └── Intracellular retention module
-
-    requirements.txt
-        Python dependencies
 
 ## Scientific description
 
